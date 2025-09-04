@@ -4,11 +4,11 @@ import {connectDB} from './config/db.js';
 import noteRoutes from './routes/noteRoutes.js';
 import cors from "cors";
 import path from 'path';
-dotenv.config({ debug: false });
+const __dirname = path.resolve();
+dotenv.config();
 
 const app = express();
-const PORT = process.env.PORT || 5000;
-const __dirname = path.resolve();
+const PORT = process.env.APP_PORT || 5000;
 
 if(process.env.NODE_ENV !== "production"){
 app.use(cors({
