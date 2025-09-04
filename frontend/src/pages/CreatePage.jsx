@@ -18,7 +18,7 @@ const handleSubmit = async (e)=>{
   }
   setLoading(true);
   try {
-    await api.post("",{title,content});
+    await api.post("/notes",{title,content});
     toast.success("Note successfully created");
     navigate("/");
   } catch (error) {

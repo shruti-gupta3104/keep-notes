@@ -10,7 +10,9 @@ const HomePage = () => {
   
 const [notes,setNotes] = useState([]);
 const [loading, setLoading] = useState(true);
- const fetchNotes = async()=>{
+
+useEffect(()=>{
+  const fetchNotes = async()=>{
     try {
       const res = await api.get("/notes");
       console.log(res.data);
@@ -22,9 +24,9 @@ const [loading, setLoading] = useState(true);
       
     }finally{setLoading(false);}
   };
-useEffect(()=>{
- 
   fetchNotes();
+
+
 },[])
   return (
     <div className='min-h-screen'>
@@ -34,7 +36,7 @@ useEffect(()=>{
         {loading && <div className='text-center text-primary py-10'>Loading notes....</div>}
       {notes.length === 0 && <NotesNotFound />}
         {notes.length>0 && (<div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6'>
-          {notes.map((note)=>(
+          {notes?.map((note)=>(
             <NoteCard key={note._id} note={note} setNotes={setNotes}/>
           ))}
 

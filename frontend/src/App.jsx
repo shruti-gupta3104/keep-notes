@@ -2,7 +2,8 @@ import React from 'react'
 import { Route, Routes } from 'react-router-dom'
 import HomePage from './pages/HomePage'
 import CreatePage from './pages/CreatePage'
-import NoteDetail from './pages/NoteDetail'
+// import NoteDetail from './pages/NoteDetailPage'
+import NoteDetailPage from './pages/NoteDetailPage'
 
 const App = () => {
   return (
@@ -11,7 +12,7 @@ const App = () => {
       <Routes>
         <Route path='/' element={<HomePage />} />
         <Route path='/create' element={<CreatePage />} />
-        <Route path='/note/:id' element={<NoteDetail />} />
+        <Route path='/note/:id' element={<NoteDetailPage />} />
       </Routes>
     </div>
   )

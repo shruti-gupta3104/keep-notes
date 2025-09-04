@@ -5,7 +5,7 @@ import { getAllNotes, createNote , deleteNote
 } from "../controllers/notesControllers.js"
 
 const router = express.Router();
-console.log("Error here");
+
 
 router.get("/:id", getNoteById);
 router.put("/:id", updateNote);

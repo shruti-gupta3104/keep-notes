@@ -7,7 +7,7 @@ import { useState } from "react";
 import { useEffect } from "react";
 
 const NoteDetailPage = () => {
-  const [note, setNote] = useState(null);
+  const [note, setNote] = useState({});
   const [loading, setLoading] = useState(true);
   const [saving, setSaving] = useState(false);
 
@@ -97,7 +97,7 @@ const NoteDetailPage = () => {
                   type="text"
                   placeholder="Note title"
                   className="input input-bordered"
-                  value={note.title}
+                  value={note.title || " "}
                   onChange={(e) => setNote({ ...note, title: e.target.value })}
                 />
               </div>
@@ -109,7 +109,7 @@ const NoteDetailPage = () => {
                 <textarea
                   placeholder="Write your note here..."
                   className="textarea textarea-bordered h-32"
-                  value={note.content}
+                  value={note.content || " "}
                   onChange={(e) => setNote({ ...note, content: e.target.value })}
                 />
               </div>
