@@ -4,7 +4,7 @@ import {connectDB} from './config/db.js';
 import noteRoutes from './routes/noteRoutes.js';
 import cors from "cors";
 import path from 'path';
-dotenv.config();
+dotenv.config({ debug: false });
 
 const app = express();
 const PORT = process.env.PORT || 5000;
@@ -23,12 +23,12 @@ app.use(express.json());
 //     next();
 // })
 
-app.use("/api/v1",noteRoutes);
+app.use("/api/notes",noteRoutes);
 
 if( process.env.NODE_ENV === "production"){
 app.use(express.static(path.join(__dirname,"../frontend/dist")));
 
-app.get("*",(req,res)=>{
+app.get("/*splat",(req,res)=>{
     res.sendFile(path.join(__dirname,"../frontend","dist","index.html"));
 });
 }

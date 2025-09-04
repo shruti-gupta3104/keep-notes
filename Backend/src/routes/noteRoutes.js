@@ -7,7 +7,7 @@ import { getAllNotes, createNote , deleteNote
 const router = express.Router();
 console.log("Error here");
 
-router.get("/note/:id", getNoteById);
+router.get("/:id", getNoteById);
 router.put("/:id", updateNote);
 router.get("/", getAllNotes);
 router.delete("/:id", deleteNote);

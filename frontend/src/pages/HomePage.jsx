@@ -12,7 +12,7 @@ const [notes,setNotes] = useState([]);
 const [loading, setLoading] = useState(true);
  const fetchNotes = async()=>{
     try {
-      const res = await api.get("");
+      const res = await api.get("/notes");
       console.log(res.data);
       setNotes(res.data);
 
